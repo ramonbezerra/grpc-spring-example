@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package model;
+
+option java_package = "br.example.demo.model";
+option java_outer_classname = "ProductProto";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+service ProductService {
+    rpc FindAll(google.protobuf.Empty) returns (Products) {}
+    rpc FindOneProductById(google.protobuf.Int32Value) returns (Product) {}
+}
+
+message Product {
+    int32 id = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message Products {
+    repeated Product product = 1;
+}
