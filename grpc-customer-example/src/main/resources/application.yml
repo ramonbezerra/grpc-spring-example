@@ -1,0 +1,4 @@
+spring.application.name: grpc-customer-example
+
+management.endpoints.web.exposure.include: metrics
+management.endpoint.metrics.enabled: true
