@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package model;
+
+option java_package = "br.example.demo.model";
+option java_outer_classname = "CustomerProto";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+service CustomerService {
+    rpc FindAll(google.protobuf.Empty) returns (Customers) {}
+}
+
+message Customer {
+    int32 id = 1;
+    string name = 2;
+    string document = 3;
+}
+
+message Customers {
+    repeated Customer customer = 1;
+}

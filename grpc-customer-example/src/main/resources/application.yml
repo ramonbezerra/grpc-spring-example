@@ -1,4 +1,9 @@
-spring.application.name: grpc-customer-example
+spring:
+    application:
+        name: grpc-customer-example
+    output:
+        ansi:
+            enabled: always
 
 management.endpoints.web.exposure.include: metrics
 management.endpoint.metrics.enabled: true
