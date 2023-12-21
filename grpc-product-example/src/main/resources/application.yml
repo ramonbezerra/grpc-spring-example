@@ -1,4 +1,29 @@
-spring.application.name: grpc-product-example
+spring:
+    application:
+        name: grpc-product-example
+    output:
+        ansi:
+            enabled: always
+
+server.port: 8081
+
+eureka:
+    instance:
+        status-page-url-path: /actuator/info
+        health-check-url-path: /actuator/health
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+
+grpc:
+    server:
+        port: 9091
+    client:
+        product-service-grpc:
+            address: 'discovery:///product-service-grpc'
+            enableKeepAlive: true
+            keepAliveWithoutCalls: true
+            negotiationType: plaintext
 
 management.endpoints.web.exposure.include: metrics
 management.endpoint.metrics.enabled: true
